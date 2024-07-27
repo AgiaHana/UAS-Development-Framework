@@ -204,7 +204,7 @@
                           <input type="text" class="form-control" id="nama_alat" placeholder="masukkan nama alat" name="nama_alat">
                         </div>
                         <div class="form-group" style="width: 80%;">
-                            <label for="rencana"></label>
+                            <label for="rencana">Rencana</label>
                             <input type="text" class="form-control" id="rencana" placeholder="masukkan rencana" name="rencana">
                         </div>
                         

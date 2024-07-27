@@ -28,15 +28,8 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-       <!-- Sidebar -->
-       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <img src="{{asset('img/mytuffkotak.png')}}" alt="">
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-         <!-- Sidebar -->
-         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+               <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <img src="{{asset('img/mytuffkotak.png')}}" alt="">
 
             <!-- Divider -->
@@ -202,10 +195,10 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Tambah Rencana</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tambah Peralatan</h1>
                     </div>
 
-                    <form action="{{ route('rencana.store') }}" method="post">
+                    <form action="{{ route('catatan.store') }}" method="post">
                         @csrf
                         <div class="form-group" style="width: 80%;">
                           <label for="nama_alat">Nama Alat</label>
@@ -213,12 +206,12 @@
                         </div>
 
                         <div class="form-group" style="width: 80%;">
-                            <label for="rencana">Rencana</label>
-                            <input type="text" class="form-control" id="rencana" placeholder="masukkan nama alat" name="rencana">
-                        </div>
+                            <label for="catatan">Catatan</label>
+                            <input type="text" class="form-control" id="catatan" placeholder="masukkan catatan" name="catatan">
+                          </div>
 
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{url('/list')}}" class="btn btn-primary"> Batal </a>
+                        <a href="{{url('/catatan')}}" class="btn btn-primary"> Batal </a>
                     </form>
                 </div>
                 {{-- End Content --}}
