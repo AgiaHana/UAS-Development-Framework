@@ -33,7 +33,7 @@
         <table class="table table-bordered">
             <thead>
               <tr class="rounded-top bg-secondary text-white">
-                <th scope="col">Nama Barang</th>
+                <th scope="col">Nama Alat</th>
                 <th scope="col">Deskripsi Barang</th>
                 <th scope="col">Catatan</th>
                 <th scope="col">Tindakan</th>
@@ -46,7 +46,7 @@
               @endphp
               @foreach ($catatan as $key => $data)
               <tr>
-                <td>{{$data->nama_barang}}</td>
+                <td>{{$data->nama_alat}}</td>
                 <td>
                     <b>Warna :</b>{{$data->warna}} <br>
                     <b>Merk :</b> {{$data->merk}} <br>

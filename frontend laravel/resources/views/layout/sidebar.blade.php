@@ -11,6 +11,13 @@
 
     <title>MyStuffMapala</title>
 
+    <style>
+        .done {
+            background-color: green;
+            color: white;
+        }
+    </style>
+
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -23,6 +30,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     @stack('style')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -43,6 +51,12 @@
                 <a class="nav-link" href="{{url('/dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('daftar') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/daftar')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>List Peralatan</span></a>
             </li>
  
             <li class="nav-item {{ request()->is('list') ? 'active' : '' }}">
@@ -75,10 +89,10 @@
                     <span>Rencana Pembelian</span></a>
             </li>
 
-            <li class="nav-item {{ request()->is('anggota') ? 'active' : '' }}">
-                <a class="nav-link" href="{{url('/anggota')}}">
+            <li class="nav-item {{ request()->is('profil') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/profil')}}">
                     <i class="fas fa-solid fa-clipboard"></i>
-                    <span>Daftar Angota</span></a>
+                    <span>Daftar Anggota</span></a>
             </li>
 
             <li class="nav-item">
@@ -299,7 +313,29 @@
         }
     });
 </script>
-  
+
+<script>
+    $(document).ready(function() {
+        $('.done-btn').click(function() {
+            var itemId = $(this).data('id');
+            var row = $('#row-' + itemId);
+            
+            $.ajax({
+                url: '/items/' + itemId + '/done',
+                type: 'POST',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.success) {
+                        row.addClass('done');
+                    }
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>

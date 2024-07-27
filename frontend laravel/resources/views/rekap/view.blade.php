@@ -40,6 +40,12 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+
+            <li class="nav-item {{ request()->is('daftar') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/daftar')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>List Peralatan</span></a>
+            </li>
  
             <li class="nav-item {{ request()->is('list') ? 'active' : '' }}">
                 <a class="nav-link" href="{{url('/list')}}">
@@ -59,10 +65,27 @@
                     <span>Rekap Data</span></a>
             </li>
 
+            <li class="nav-item {{ request()->is('catatan') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/catatan')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Catatan Peralatan</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('rencana') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/rencana')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Rencana Pembelian</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('profil') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/profil')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Daftar Anggota</span></a>
+            </li>
+
             <li class="nav-item">
                 <form action="{{route('logout')}}">
-                    <button class="btn" type="submit">
-                <a class="nav-link" href="{{url('/profil')}}">
+                    <button class="btn nav-link" type="submit">
                     <i class="fas fa-solid fa-backward"></i>
                     <span>Logout</span></a>
                 </button>
@@ -70,6 +93,7 @@
             </li>
         </ul>
         <!-- End of Sidebar -->
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">

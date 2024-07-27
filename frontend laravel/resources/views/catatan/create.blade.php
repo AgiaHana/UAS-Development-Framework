@@ -35,41 +35,73 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('/dashboard')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
+         <!-- Sidebar -->
+         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <img src="{{asset('img/mytuffkotak.png')}}" alt="">
 
-        <li class="nav-item {{ request()->is('list') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('/list')}}">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Stok Barang</span></a>
-        </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-        <li class="nav-item {{ request()->is('/peminjaman') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('/peminjaman')}}">
-                <i class="fas fa-fw fa-solid fa-book"></i>
-                <span>Peminjaman</span></a>
-        </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/dashboard')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
-        <li class="nav-item {{ request()->is('rekap') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('/rekap')}}">
-                <i class="fas fa-solid fa-clipboard"></i>
-                <span>Rekap Data</span></a>
-        </li>
+            <li class="nav-item {{ request()->is('daftar') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/daftar')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>List Peralatan</span></a>
+            </li>
+ 
+            <li class="nav-item {{ request()->is('list') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/list')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Stok Barang</span></a>
+            </li>
 
-        <li class="nav-item">
-            <form action="{{route('logout')}}">
-                <button class="btn nav-link" type="submit">
-                <i class="fas fa-solid fa-backward"></i>
-                <span>Logout</span></a>
-            </button>
-            </form>
-        </li>
-    </ul>
-    <!-- End of Sidebar -->
+            <li class="nav-item {{ request()->is('/peminjaman') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/peminjaman')}}">
+                    <i class="fas fa-fw fa-solid fa-book"></i>
+                    <span>Peminjaman</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('rekap') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/rekap')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Rekap Data</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('catatan') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/catatan')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Catatan Peralatan</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('rencana') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/rencana')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Rencana Pembelian</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('profil') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/profil')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Daftar Anggota</span></a>
+            </li>
+
+            <li class="nav-item">
+                <form action="{{route('logout')}}">
+                    <button class="btn nav-link" type="submit">
+                    <i class="fas fa-solid fa-backward"></i>
+                    <span>Logout</span></a>
+                </button>
+                </form>
+            </li>
+        </ul>
+        <!-- End of Sidebar -->
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -170,31 +202,19 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Tambah Catatan</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tambah Rencana</h1>
                     </div>
 
-                    <form action="{{ route('catatan.store') }}" method="post">
+                    <form action="{{ route('rencana.store') }}" method="post">
                         @csrf
                         <div class="form-group" style="width: 80%;">
                           <label for="nama_alat">Nama Alat</label>
                           <input type="text" class="form-control" id="nama_alat" placeholder="masukkan nama alat" name="nama_alat">
                         </div>
 
-                        <span>Deskripsi: </span>
-                        <div class="d-sm-flex align-items-center mb-4">
-                        <div class="form-group" style="margin-left: 24px;">
-                            <label for="warna">Warna</label>
-                            <input type="text" class="form-control" id="warna" placeholder="masukkan warna alat" name="warna">
-                        </div>
-                        <div class="form-group" style="margin-left: 24px;">
-                            <label for="merk">Merk</label>
-                            <input type="text" class="form-control" id="merk" placeholder="masukkan warna alat" name="merk">
-                        </div>
-                        </div>
-
                         <div class="form-group" style="width: 80%;">
-                            <label for="catatan">Catatan</label>
-                            <input type="text" class="form-control" id="catatan" placeholder="masukkan nama alat" name="catatan">
+                            <label for="rencana">Rencana</label>
+                            <input type="text" class="form-control" id="rencana" placeholder="masukkan nama alat" name="rencana">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Simpan</button>

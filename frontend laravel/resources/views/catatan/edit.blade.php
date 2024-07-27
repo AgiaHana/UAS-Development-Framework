@@ -28,8 +28,8 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-      <!-- Sidebar -->
-      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+       <!-- Sidebar -->
+       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <img src="{{asset('img/mytuffkotak.png')}}" alt="">
 
         <!-- Divider -->
@@ -40,6 +40,12 @@
             <a class="nav-link" href="{{url('/dashboard')}}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
+        </li>
+
+        <li class="nav-item {{ request()->is('daftar') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('/daftar')}}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>List Peralatan</span></a>
         </li>
 
         <li class="nav-item {{ request()->is('list') ? 'active' : '' }}">
@@ -60,6 +66,24 @@
                 <span>Rekap Data</span></a>
         </li>
 
+        <li class="nav-item {{ request()->is('catatan') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('/catatan')}}">
+                <i class="fas fa-solid fa-clipboard"></i>
+                <span>Catatan Peralatan</span></a>
+        </li>
+
+        <li class="nav-item {{ request()->is('rencana') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('/rencana')}}">
+                <i class="fas fa-solid fa-clipboard"></i>
+                <span>Rencana Pembelian</span></a>
+        </li>
+
+        <li class="nav-item {{ request()->is('profil') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('/profil')}}">
+                <i class="fas fa-solid fa-clipboard"></i>
+                <span>Daftar Anggota</span></a>
+        </li>
+
         <li class="nav-item">
             <form action="{{route('logout')}}">
                 <button class="btn nav-link" type="submit">
@@ -70,6 +94,7 @@
         </li>
     </ul>
     <!-- End of Sidebar -->
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -171,36 +196,24 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Edit Catatan</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Edit Rencana</h1>
                     </div>
 
-                    <form action="{{ route('catatan.update', $catatan->id) }}" method="post">
+                    <form action="{{ route('rencana.update', $rencana->id) }}" method="post">
                         @csrf
                         @method('put')
                         <div class="form-group" style="width: 80%;">
                           <label for="nama_alat">Nama Alat</label>
-                          <input type="text" class="form-control" id="nama_alat" placeholder="masukkan nama alat" name="nama_alat" value="{{ old('nama_alat', $catatan->nama_alat) }}">
-                        </div>
-
-                        <span>Deskripsi: </span>
-                        <div class="d-sm-flex align-items-center mb-4">
-                        <div class="form-group" style="margin-left: 24px;">
-                            <label for="warna">Warna</label>
-                            <input type="text" class="form-control" id="warna" placeholder="masukkan warna alat" name="warna" value="{{ old('warna', $catatan->warna) }}">
-                        </div>
-                        <div class="form-group" style="margin-left: 24px;">
-                            <label for="merk">Merk</label>
-                            <input type="text" class="form-control" id="merk" placeholder="masukkan merk alat" name="merk" value="{{ old('merk', $catatan->merk) }}">
-                        </div>
+                          <input type="text" class="form-control" id="nama_alat" placeholder="masukkan nama alat" name="nama_alat" value="{{ old('nama_alat', $rencana->nama_alat) }}">
                         </div>
 
                         <div class="form-group" style="width: 80%;">
-                            <label for="catatan">Nama Alat</label>
-                            <input type="text" class="form-control" id="catatan" placeholder="masukkan nama alat" name="catatan" value="{{ old('catatan', $catatan->catatan) }}">
+                            <label for="rencana">Rencana</label>
+                            <input type="text" class="form-control" id="rencana" placeholder="masukkan nama alat" name="rencana" value="{{ old('rencana', $rencana->rencana) }}">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Simpan</button></a>
-                        <a href="{{url('/catatan')}}">
+                        <a href="{{url('/rencana')}}">
                         <button class="btn btn-primary">Batal</button></a>
                     </form>
                 </div>

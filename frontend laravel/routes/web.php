@@ -3,10 +3,12 @@
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\Auth\AuthenController;
 use App\Http\Controllers\AuthenController as ControllersAuthenController;
+use App\Http\Controllers\CatatanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PeralatanController;
 use App\Http\Controllers\RekapController;
+use App\Http\Controllers\RencanaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +26,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Route::get('/dashboard', function () {
+//     return view('welcome');
+// })->middleware('auth');
+
 Route::get('/dashboard', function () {
     return view('welcome');
-})->middleware('auth');
-
+});
 Route::get('/list', function () {
     return view('peralatan.index');
 });
@@ -89,3 +94,31 @@ Route::get('selectpeminjam/{id}', [PeminjamanController::class, 'peminjam']);
 Route::get('peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
 Route::post('peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
 Route::delete('peminjaman/{id}', [PeminjamanController::class, 'destroy'])->name('peminjaman.destroy');
+
+Route::get('/daftar', function () {
+    return view('list.index');
+});
+
+Route::get('/catatan', function () {
+    return view('catatan.index');
+});
+Route::get('/tambahcatatan', function () {
+    return view('catatan.create');
+});
+Route::post('catatan', [CatatanController::class, 'store'])->name('catatan.store');
+Route::delete('catatan/{id}', [CatatanController::class, 'destroy'])->name('catatan.destroy');
+Route::put('catatan/{id}', [CatatanController::class, 'update'])->name('catatan.update');
+Route::get('catatan/{id}/edit', [CatatanController::class, 'edit'])->name('catatan.edit');
+
+Route::get('/rencana', function () {
+    return view('rencana.index');
+});
+Route::get('/tambahrencana', function () {
+    return view('rencana.create');
+});
+Route::post('rencana', [RencanaController::class, 'store'])->name('rencana.store');
+Route::delete('rencana/{id}', [RencanaController::class, 'destroy'])->name('rencana.destroy');
+Route::put('rencana/{id}', [RencanaController::class, 'update'])->name('rencana.update');
+Route::get('rencana/{id}/edit', [RencanaController::class, 'edit'])->name('rencana.edit');
+Route::get('rencana/{id}/show', [RencanaController::class, 'show'])->name('rencana.show');
+Route::post('/items/{id}/done', [RencanaController::class, 'markAsDone'])->name('rencana.done');

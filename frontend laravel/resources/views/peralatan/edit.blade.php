@@ -28,8 +28,8 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-      <!-- Sidebar -->
-      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+       <!-- Sidebar -->
+       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <img src="{{asset('img/mytuffkotak.png')}}" alt="">
 
         <!-- Divider -->
@@ -40,6 +40,12 @@
             <a class="nav-link" href="{{url('/dashboard')}}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
+        </li>
+
+        <li class="nav-item {{ request()->is('daftar') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('/daftar')}}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>List Peralatan</span></a>
         </li>
 
         <li class="nav-item {{ request()->is('list') ? 'active' : '' }}">
@@ -58,6 +64,24 @@
             <a class="nav-link" href="{{url('/rekap')}}">
                 <i class="fas fa-solid fa-clipboard"></i>
                 <span>Rekap Data</span></a>
+        </li>
+
+        <li class="nav-item {{ request()->is('catatan') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('/catatan')}}">
+                <i class="fas fa-solid fa-clipboard"></i>
+                <span>Catatan Peralatan</span></a>
+        </li>
+
+        <li class="nav-item {{ request()->is('rencana') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('/rencana')}}">
+                <i class="fas fa-solid fa-clipboard"></i>
+                <span>Rencana Pembelian</span></a>
+        </li>
+
+        <li class="nav-item {{ request()->is('profil') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('/profil')}}">
+                <i class="fas fa-solid fa-clipboard"></i>
+                <span>Daftar Anggota</span></a>
         </li>
 
         <li class="nav-item">

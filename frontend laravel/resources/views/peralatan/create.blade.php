@@ -28,48 +28,73 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-       <!-- Sidebar -->
-       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <img src="{{asset('img/mytuffkotak.png')}}" alt="">
+               <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <img src="{{asset('img/mytuffkotak.png')}}" alt="">
 
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('/dashboard')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/dashboard')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
-        <li class="nav-item {{ request()->is('list') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('/list')}}">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Stok Barang</span></a>
-        </li>
+            <li class="nav-item {{ request()->is('daftar') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/daftar')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>List Peralatan</span></a>
+            </li>
+ 
+            <li class="nav-item {{ request()->is('list') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/list')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Stok Barang</span></a>
+            </li>
 
-        <li class="nav-item {{ request()->is('/peminjaman') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('/peminjaman')}}">
-                <i class="fas fa-fw fa-solid fa-book"></i>
-                <span>Peminjaman</span></a>
-        </li>
+            <li class="nav-item {{ request()->is('/peminjaman') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/peminjaman')}}">
+                    <i class="fas fa-fw fa-solid fa-book"></i>
+                    <span>Peminjaman</span></a>
+            </li>
 
-        <li class="nav-item {{ request()->is('rekap') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('/rekap')}}">
-                <i class="fas fa-solid fa-clipboard"></i>
-                <span>Rekap Data</span></a>
-        </li>
+            <li class="nav-item {{ request()->is('rekap') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/rekap')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Rekap Data</span></a>
+            </li>
 
-        <li class="nav-item">
-            <form action="{{route('logout')}}">
-                <button class="btn nav-link" type="submit">
-                <i class="fas fa-solid fa-backward"></i>
-                <span>Logout</span></a>
-            </button>
-            </form>
-        </li>
-    </ul>
-    <!-- End of Sidebar -->
+            <li class="nav-item {{ request()->is('catatan') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/catatan')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Catatan Peralatan</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('rencana') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/rencana')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Rencana Pembelian</span></a>
+            </li>
+
+            <li class="nav-item {{ request()->is('profil') ? 'active' : '' }}">
+                <a class="nav-link" href="{{url('/profil')}}">
+                    <i class="fas fa-solid fa-clipboard"></i>
+                    <span>Daftar Anggota</span></a>
+            </li>
+
+            <li class="nav-item">
+                <form action="{{route('logout')}}">
+                    <button class="btn nav-link" type="submit">
+                    <i class="fas fa-solid fa-backward"></i>
+                    <span>Logout</span></a>
+                </button>
+                </form>
+            </li>
+        </ul>
+        <!-- End of Sidebar -->
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
