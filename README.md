@@ -8,5 +8,9 @@ Sistem Manajemen Stok Barang adalah aplikasi web yang dirancang untuk membantu m
 - **Frontend**: Bootstrap
 - **Arsitektur**: Microservices dengan Frontend dan Backend yang terpisah
 
+## Anggota Kelompok
+1. Muhammad Rizqi Ramadhan (22.01.4916)
+2. Agia Hana Nabila (22.01.4934)
+3. Agustino Wijayanto (22.01.4936)
 
 **Happy Coding!** 🚀
